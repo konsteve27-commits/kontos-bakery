@@ -5,36 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Αρτοζαχαροπλαστείο ΚΟΝΤΟΣ στη Λέρο. Φρέσκο ψωμί, παραδοσιακά σφολιατοειδή, γλυκά και τούρτες. Διανομή κατ' οίκον.">
-    <meta name="keywords" content="φούρνος, αρτοποιείο, Λέρος, γλυκά, ψωμί, delivery">
-    <title>Αρτοζαχαροπλαστείο ΚΟΝΤΟΣ | Παραδοσιακή Ποιότητα</title>
+        content="Αρτοζαχαροπλαστείο ΚΟΝΤΟΣ στη Λέρο. Φρέσκο ψωμί, παραδοσιακά σφολιατοειδή, χειροποίητα γλυκά και τούρτες. Διανομή κατ' οίκον.">
+    <meta name="keywords" content="φούρνος, αρτοποιείο, Λέρος, γλυκά, ψωμί, delivery, ζαχαροπλαστείο, παραδοσιακό">
+    <meta name="theme-color" content="#2A1B14">
+    <title>Αρτοζαχαροπλαστείο ΚΟΝΤΟΣ | Παραδοσιακή Ποιότητα από το 1960</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap"
         rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 
 <body>
-
-    <header class="site-header">
+    <header class="site-header" id="header">
         <nav class="container">
-            <a href="#home" class="logo">ΚΟΝΤΟΣ<span class="logo-dot">.</span></a>
-            <button class="hamburger" aria-label="Μενού πλοήγησης" aria-expanded="false">
+            <a href="#home" class="logo" aria-label="Αρχική σελίδα ΚΟΝΤΟΣ">
+                <span class="logo-text">ΚΟΝΤΟΣ<span class="logo-dot">.</span></span>
+            </a>
+            <button class="hamburger" aria-label="Άνοιγμα μενού πλοήγησης" aria-expanded="false"
+                aria-controls="main-nav">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
-            <ul class="nav-links">
+            <ul class="nav-links" id="main-nav">
                 <li><a href="#home">Αρχική</a></li>
                 <li><a href="#about">Η Ιστορία</a></li>
-                <li><a href="#products">Δημιουργίες</a></li>
+                <li><a href="#products">Τα Προϊόντα μας</a></li>
                 <li><a href="#locations">Επικοινωνία</a></li>
             </ul>
         </nav>
@@ -42,163 +46,201 @@
 
     <main>
         <section id="home" class="hero">
+            <div class="hero-bg"></div>
             <div class="hero-overlay"></div>
-            <div class="hero-content reveal">
+            <div class="container hero-content reveal">
                 <span class="hero-subtitle">Απο το 1960</span>
-                <h1>Αρτοζαχαροπλαστείο<br>ΚΟΝΤΟΣ</h1>
-                <p>Η τέχνη της παραδοσιακής αρτοποιίας, καθημερινά στην πόρτα σας.</p>
+                <h1>Η τέχνη της παραδοσιακής αρτοποιίας.</h1>
+                <p>Εκλεκτά υλικά, πατροπαράδοτες συνταγές και αφοσίωση στην ποιότητα, καθημερινά στην πόρτα σας.</p>
                 <div class="hero-actions">
-                    <a href="#products" class="btn btn-primary">Οι Δημιουργίες μας</a>
+                    <a href="#products" class="btn btn-primary">Τα Προϊόντα μας</a>
                     <a href="#locations" class="btn btn-secondary">Παραγγελία Delivery</a>
                 </div>
             </div>
-            <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+            <a href="#about" class="scroll-indicator" aria-label="Μετάβαση στην επόμενη ενότητα">
                 <i class="fa-solid fa-chevron-down"></i>
             </a>
         </section>
 
-        <section id="about" class="about section-padding container">
-            <div class="about-grid">
-                <div class="about-text reveal">
+        <section id="about" class="about section-padding bg-light">
+            <div class="container about-grid">
+                <div class="about-text reveal fade-right">
                     <h2 class="section-title">Η Κληρονομιά Μας</h2>
                     <p class="lead">Γνήσιος οικογενειακός φούρνος που λειτουργεί με αφοσίωση από την τρίτη γενιά
                         αρτοποιών.</p>
-                    <p>Συνδυάζουμε τις αυθεντικές παραδοσιακές συνταγές του τόπου μας με σύγχρονες τεχνικές αρτοποίησης.
-                        Επιλέγουμε αυστηρά τις καλύτερες πρώτες ύλες για να σας προσφέρουμε εκλεκτά αρτοσκευάσματα,
-                        χειροποίητες πίτες και φρέσκα γλυκά που ξεχωρίζουν για τη γεύση και την ποιότητά τους.</p>
+                    <p>Συνδυάζουμε τις αυθεντικές παραδοσιακές συνταγές του τόπου μας με σύγχρονες τεχνικές. Επιλέγουμε
+                        αυστηρά τις καλύτερες πρώτες ύλες για να σας προσφέρουμε εκλεκτά αρτοσκευάσματα, χειροποίητες
+                        πίτες και φρέσκα γλυκά που ξεχωρίζουν για τη γεύση και την ποιότητά τους.</p>
                 </div>
-                <div class="about-image reveal fade-right">
-                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                        alt="Φρέσκο ψωμί στον πάγκο" loading="lazy">
+                <div class="about-image reveal fade-left">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Φρέσκο παραδοσιακό ψωμί" loading="lazy">
+                        <div class="experience-badge">
+                            <span class="years">60+</span>
+                            <span class="text">Χρόνια<br>Παράδοσης</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="products" class="products-section">
-    <h2 class="section-title">Οι Δημιουργίες μας</h2>
-
-    <div class="carousel-wrapper">
-        <button class="nav-arrow prev-arrow" aria-label="Προηγούμενο"><i class="fa-solid fa-chevron-left"></i></button>
-        
-        <div class="carousel-track">
-            <div class="carousel-slide">
-                <div class="product-card">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800');"></div>
-                    <div class="card-info">
-                        <h3>Χωριάτικο Μεσογειακό</h3>
-                        <p>Παραδοσιακό προζυμένιο καρβέλι.</p>
-                        <span class="price">1.80€</span>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-slide">
-                <div class="product-card">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1598373182133-52452f7691ef?w=800');"></div>
-                    <div class="card-info">
-                        <h3>Πολύσπορο</h3>
-                        <p>Υψηλής διατροφικής αξίας.</p>
-                        <span class="price">1.50€</span>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-slide">
-                <div class="product-card">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1549611391-76495acb6290?w=800');"></div>
-                    <div class="card-info">
-                        <h3>Ελιόψωμο</h3>
-                        <p>Με φρέσκες ελιές Καλαμών.</p>
-                        <span class="price">2.20€</span>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-slide">
-                <div class="product-card">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1581008899341-26f54c9c10f8?w=800');"></div>
-                    <div class="card-info">
-                        <h3>Κρουασάν Βουτύρου</h3>
-                        <p>Αφράτο, γαλλικής συνταγής.</p>
-                        <span class="price">1.40€</span>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-slide">
-                <div class="product-card">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1620921575123-1d8f8a2bc445?w=800');"></div>
-                    <div class="card-info">
-                        <h3>Σπανακόπιτα</h3>
-                        <p>Χειροποίητο φύλλο και φέτα.</p>
-                        <span class="price">2.00€</span>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-slide">
-                <div class="product-card">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1584269654153-61b6cb4ec6e1?w=800');"></div>
-                    <div class="card-info">
-                        <h3>Μπακλαβάς</h3>
-                        <p>Γέμιση καρυδιού και μέλι.</p>
-                        <span class="price">3.50€</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <button class="nav-arrow next-arrow" aria-label="Επόμενο"><i class="fa-solid fa-chevron-right"></i></button>
-    </div>
-</section>
-
-        <section id="locations" class="locations section-padding container">
-            <div class="section-header reveal">
-                <h2 class="section-title">Εξυπηρέτηση</h2>
-                <p>Βρισκόμαστε δίπλα σας με 3 φυσικά καταστήματα και υπηρεσία διανομής.</p>
+        <section id="products" class="products-section section-padding">
+            <div class="container section-header reveal">
+                <h2 class="section-title">Τα Προϊόντα μας</h2>
+                <p>Ανακαλύψτε τις ξεχωριστές γεύσεις που ετοιμάζουμε καθημερινά για εσάς.</p>
             </div>
 
-            <div class="locations-grid">
-                <div class="contact-card info-card reveal fade-left">
-                    <h3><i class="fa-solid fa-store"></i> Τα Καταστήματά μας</h3>
-                    <ul class="contact-list">
-                        <li>
-                            <div class="store-info">
-                                <strong>Γούρνα</strong>
-                                <span>Κεντρικό Κατάστημα</span>
+            <div class="carousel-wrapper reveal delay-1">
+                <button class="nav-arrow prev-arrow" aria-label="Προηγούμενο προϊόν"><i
+                        class="fa-solid fa-arrow-left"></i></button>
+
+                <div class="carousel-track">
+                    <div class="carousel-slide active">
+                        <article class="product-card">
+                            <div class="card-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800');"
+                                role="img" aria-label="Χωριάτικο Μεσογειακό"></div>
+                            <div class="card-info">
+                                <h3>Χωριάτικο Μεσογειακό</h3>
+                                <p>Παραδοσιακό προζυμένιο καρβέλι.</p>
+                                <span class="price">1.80€</span>
                             </div>
-                            <a href="tel:+302247026412" class="phone-link"><i class="fa-solid fa-phone"></i> 22470
-                                26412</a>
-                        </li>
-                        <li>
-                            <div class="store-info">
-                                <strong>Αγία Μαρίνα</strong>
+                        </article>
+                    </div>
+                    <div class="carousel-slide">
+                        <article class="product-card">
+                            <div class="card-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1598373182133-52452f7691ef?w=800');"
+                                role="img" aria-label="Πολύσπορο"></div>
+                            <div class="card-info">
+                                <h3>Πολύσπορο</h3>
+                                <p>Υψηλής διατροφικής αξίας.</p>
+                                <span class="price">1.50€</span>
                             </div>
-                            <a href="tel:+302247022412" class="phone-link"><i class="fa-solid fa-phone"></i> 22470
-                                22412</a>
-                        </li>
-                        <li>
-                            <div class="store-info">
-                                <strong>Λακκί</strong>
+                        </article>
+                    </div>
+                    <div class="carousel-slide">
+                        <article class="product-card">
+                            <div class="card-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1549611391-76495acb6290?w=800');"
+                                role="img" aria-label="Ελιόψωμο"></div>
+                            <div class="card-info">
+                                <h3>Ελιόψωμο</h3>
+                                <p>Με φρέσκες ελιές Καλαμών.</p>
+                                <span class="price">2.20€</span>
                             </div>
-                            <a href="tel:+302247025892" class="phone-link"><i class="fa-solid fa-phone"></i> 22470
-                                25892</a>
-                        </li>
-                    </ul>
+                        </article>
+                    </div>
+                    <div class="carousel-slide">
+                        <article class="product-card">
+                            <div class="card-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1581008899341-26f54c9c10f8?w=800');"
+                                role="img" aria-label="Κρουασάν Βουτύρου"></div>
+                            <div class="card-info">
+                                <h3>Κρουασάν Βουτύρου</h3>
+                                <p>Αφράτο, γαλλικής συνταγής.</p>
+                                <span class="price">1.40€</span>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="carousel-slide">
+                        <article class="product-card">
+                            <div class="card-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1620921575123-1d8f8a2bc445?w=800');"
+                                role="img" aria-label="Σπανακόπιτα"></div>
+                            <div class="card-info">
+                                <h3>Σπανακόπιτα</h3>
+                                <p>Χειροποίητο φύλλο και φέτα.</p>
+                                <span class="price">2.00€</span>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="carousel-slide">
+                        <article class="product-card">
+                            <div class="card-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1584269654153-61b6cb4ec6e1?w=800');"
+                                role="img" aria-label="Μπακλαβάς"></div>
+                            <div class="card-info">
+                                <h3>Μπακλαβάς</h3>
+                                <p>Γέμιση καρυδιού και μέλι.</p>
+                                <span class="price">3.50€</span>
+                            </div>
+                        </article>
+                    </div>
                 </div>
 
-                <div class="contact-card delivery-card reveal fade-right">
-                    <div class="status-badge" id="store-status">Ελέγχος ωραρίου...</div>
-                    <h3><i class="fa-solid fa-motorcycle"></i> Διανομή Κατ' Οίκον</h3>
-                    <a href="tel:+306987151895" class="phone-large">6987 151895</a>
-                    <div class="delivery-details">
-                        <div class="detail-item">
-                            <i class="fa-regular fa-clock"></i>
-                            <div>
-                                <strong>Ωράριο Delivery:</strong>
-                                <span>Δευτέρα - Σάββατο | 06:00 - 14:00</span>
+                <button class="nav-arrow next-arrow" aria-label="Επόμενο προϊόν"><i
+                        class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </section>
+
+        <section id="locations" class="locations section-padding bg-light">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="section-title">Εξυπηρέτηση</h2>
+                    <p>Βρισκόμαστε δίπλα σας με 3 φυσικά καταστήματα και υπηρεσία άμεσης διανομής.</p>
+                </div>
+
+                <div class="locations-grid">
+                    <div class="contact-card info-card reveal fade-right">
+                        <h3><i class="fa-solid fa-store"></i> Τα Καταστήματά μας</h3>
+                        <ul class="contact-list">
+                            <li>
+                                <div class="store-info">
+                                    <strong>Γούρνα</strong>
+                                    <span>Κεντρικό Κατάστημα</span>
+                                </div>
+                                <div class="store-actions">
+                                    <a href="tel:+302247026412" class="phone-link">22470 26412</a>
+                                    <a href="#" target="_blank" class="map-pin-link"
+                                        aria-label="Τοποθεσία Γούρνα στο χάρτη"><i
+                                            class="fa-solid fa-location-dot"></i></a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="store-info">
+                                    <strong>Αγία Μαρίνα</strong>
+                                </div>
+                                <div class="store-actions">
+                                    <a href="tel:+302247022412" class="phone-link">22470 22412</a>
+                                    <a href="#" target="_blank" class="map-pin-link"
+                                        aria-label="Τοποθεσία Αγία Μαρίνα στο χάρτη"><i
+                                            class="fa-solid fa-location-dot"></i></a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="store-info">
+                                    <strong>Λακκί</strong>
+                                </div>
+                                <div class="store-actions">
+                                    <a href="tel:+302247025892" class="phone-link">22470 25892</a>
+                                    <a href="#" target="_blank" class="map-pin-link"
+                                        aria-label="Τοποθεσία Λακκί στο χάρτη"><i
+                                            class="fa-solid fa-location-dot"></i></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-card delivery-card reveal fade-left">
+                        <div class="status-badge" id="store-status">Ελέγχος ωραρίου...</div>
+                        <h3><i class="fa-solid fa-motorcycle"></i> Διανομή Κατ' Οίκον</h3>
+                        <a href="tel:+306987151895" class="phone-large">6987 151895</a>
+                        <div class="delivery-details">
+                            <div class="detail-item">
+                                <i class="fa-regular fa-clock"></i>
+                                <div>
+                                    <strong>Ωράριο Delivery:</strong>
+                                    <span>Δευτέρα - Σάββατο | 06:00 - 14:00</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fa-solid fa-wallet"></i>
-                            <div>
-                                <strong>Ελάχιστη Παραγγελία:</strong>
-                                <span>3.00€</span>
+                            <div class="detail-item">
+                                <i class="fa-solid fa-wallet"></i>
+                                <div>
+                                    <strong>Ελάχιστη Παραγγελία:</strong>
+                                    <span>3.00€</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -209,11 +251,20 @@
 
     <footer class="site-footer">
         <div class="container">
-            <p>&copy; <span id="current-year"></span> Αρτοζαχαροπλαστείο ΚΟΝΤΟΣ. Με την επιφύλαξη παντός δικαιώματος.
-            </p>
+            <div class="footer-content">
+                <div class="footer-logo">ΚΟΝΤΟΣ<span>.</span></div>
+                <p>Η τέχνη της παραδοσιακής αρτοποιίας στη Λέρο.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Αρτοζαχαροπλαστείο ΚΟΝΤΟΣ. Με την επιφύλαξη παντός
+                    δικαιώματος.</p>
+            </div>
         </div>
     </footer>
-
 </body>
 
 </html>
