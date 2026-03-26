@@ -392,25 +392,22 @@ a {
     align-items: center;
 }
 
+/* 1. Ενημερωμένος κανόνας για το track με δυναμικό padding */
 .carousel-track {
     display: flex;
     gap: 2rem;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    /* Αφαίρεση του οριζόντιου padding calc(). Διατηρείται μόνο το κάθετο 3rem. */
-    padding: 3rem 0; 
+    /* Υπολογισμός: 50% του πλάτους μείον το μισό πλάτος ενός slide (320px / 2 = 160px) */
+    padding: 3rem calc(50% - 160px); 
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
 
-/* Προσθήκη κενού χώρου για την επίτευξη του κεντραρίσματος του πρώτου και τελευταίου στοιχείου */
-/* Προσθήκη κενού χώρου για την επίτευξη του κεντραρίσματος του πρώτου και τελευταίου στοιχείου */
+/* 2. Κατάργηση των ψευδοστοιχείων που δημιουργούσαν το πρόβλημα */
 .carousel-track::before,
 .carousel-track::after {
-    content: '';
-    /* Αφαίρεση του 2rem (το οριζόντιο flex gap) από την τελική εξίσωση */
-    flex: 0 0 calc(50% - 160px - 2rem); 
+    display: none; 
 }
 
 .carousel-track::-webkit-scrollbar { display: none; }
@@ -496,6 +493,44 @@ a {
 
 .prev-arrow { left: 40px; }
 .next-arrow { right: 40px; }
+/* Φίλτρα Προϊόντων */
+.product-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 2px solid var(--border-color);
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.filter-btn:hover {
+    border-color: var(--accent-gold);
+    color: var(--primary-dark);
+}
+
+.filter-btn.active {
+    background: var(--accent-gold);
+    border-color: var(--accent-gold);
+    color: var(--bg-white);
+    box-shadow: var(--shadow-gold);
+}
+
+/* Κλάση απόκρυψης για το JS */
+.carousel-slide.hidden {
+    display: none !important;
+}
 
 /* =========================================
    7. Επικοινωνία (Locations)
@@ -606,7 +641,7 @@ a {
 
 .phone-large {
     display: block;
-    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-size: clamp(1.5rem, 2vw, 3.5rem);
     font-weight: 800;
     color: var(--accent-gold);
     margin: 1.5rem 0 2.5rem;

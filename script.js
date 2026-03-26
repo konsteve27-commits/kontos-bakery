@@ -58,37 +58,35 @@ document.addEventListener('DOMContentLoaded', () => {
     if (statusBadge) {
         const checkStatus = () => {
             const now = new Date();
-            const day = now.getDay(); // 0 = Κυριακή, 1 = Δευτέρα
+            const day = now.getDay();
             const hour = now.getHours();
-            // Ανοιχτά Δευτέρα (1) έως Σάββατο (6), 06:00 έως 14:00 (13:59)
             const isOpen = day >= 1 && day <= 6 && hour >= 6 && hour < 14;
 
             statusBadge.textContent = isOpen ? 'Ανοιχτά τώρα' : 'Κλειστά';
             statusBadge.className = `status-badge ${isOpen ? 'open' : 'closed'}`;
         };
         checkStatus();
-        setInterval(checkStatus, 60000); // Ανανέωση ανά λεπτό
+        setInterval(checkStatus, 60000);
     }
 
-    // 6. Carousel Logic (Βελτιστοποιημένο)
+    // 6. & 7. Ενοποιημένη Λογική Carousel και Φιλτραρίσματος
     const track = document.querySelector('.carousel-track');
     const slides = document.querySelectorAll('.carousel-slide');
     const prevBtn = document.querySelector('.prev-arrow');
     const nextBtn = document.querySelector('.next-arrow');
+    const filterBtns = document.querySelectorAll('.filter-btn');
 
     if (track && slides.length > 0) {
-
-        // Ασφαλής επιβολή εστίασης στο πρώτο στοιχείο
-        setTimeout(() => {
-            slides[0].scrollIntoView({ behavior: 'instant', inline: 'center', block: 'nearest' });
-        }, 100);
-
-        const getScrollAmount = () => {
-            const gap = parseFloat(getComputedStyle(track).gap) || 32;
-            return slides[0].offsetWidth + gap;
-        };
-
+        
+        // Λογική Πλοήγησης (Βέλη)
         if (prevBtn && nextBtn) {
+            const getScrollAmount = () => {
+                const visibleSlide = Array.from(slides).find(s => !s.classList.contains('hidden'));
+                const slideWidth = visibleSlide ? visibleSlide.offsetWidth : 320;
+                const gap = parseFloat(getComputedStyle(track).gap) || 32;
+                return slideWidth + gap;
+            };
+
             nextBtn.addEventListener('click', () => {
                 track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
             });
@@ -98,22 +96,96 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Αυστηρός περιορισμός του observer στο ακριβές κέντρο (45% περιθώριο αριστερά/δεξιά)
-        const carouselOptions = {
-            root: track,
-            rootMargin: '0px -45% 0px -45%',
-            threshold: 0
-        };
+        // Μαθηματικός υπολογισμός κεντρικού στοιχείου
+        const updateActiveSlide = () => {
+            const trackRect = track.getBoundingClientRect();
+            const trackCenter = trackRect.left + trackRect.width / 2;
+            let closestSlide = null;
+            let minDistance = Infinity;
 
-        const carouselObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    slides.forEach(slide => slide.classList.remove('active'));
-                    entry.target.classList.add('active');
+            slides.forEach(slide => {
+                if (slide.classList.contains('hidden')) return;
+                
+                const slideRect = slide.getBoundingClientRect();
+                const slideCenter = slideRect.left + slideRect.width / 2;
+                const distance = Math.abs(trackCenter - slideCenter);
+
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closestSlide = slide;
                 }
             });
-        }, carouselOptions);
 
-        slides.forEach(slide => carouselObserver.observe(slide));
+            // Εφαρμογή κλάσης active αποκλειστικά στο κεντρικό στοιχείο
+            slides.forEach(slide => {
+                if (slide === closestSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+        };
+
+        // Έλεγχος κεντραρίσματος κατά την κύλιση (scroll)
+        track.addEventListener('scroll', () => {
+            requestAnimationFrame(updateActiveSlide);
+        }, { passive: true });
+
+        // Λογική Φιλτραρίσματος
+        if (filterBtns.length > 0) {
+            const defaultCategory = 'bread';
+
+            const centerFirstVisibleSlide = () => {
+                // Εξαναγκασμός reflow για να αναγνωριστούν τα νέα πλάτη των στοιχείων
+                void track.offsetWidth; 
+                
+                // Ακαριαία μεταφορά στην αρχή. Λόγω των ::before (CSS) το 1ο στοιχείο πάει στο κέντρο
+                track.scrollTo({ left: 0, behavior: 'auto' });
+                
+                // Άμεση ενημέρωση της μεγέθυνσης
+                requestAnimationFrame(updateActiveSlide);
+            };
+
+            // Αρχική κατάσταση κατά τη φόρτωση
+            slides.forEach(slide => {
+                // Αφαίρεση οποιουδήποτε inline style που προκαλεί σύγκρουση
+                slide.style.opacity = '';
+                slide.style.transform = '';
+                
+                if (slide.dataset.category !== defaultCategory) {
+                    slide.classList.add('hidden');
+                }
+            });
+            
+            // Κεντράρισμα πρώτου στοιχείου μόλις φορτώσει το DOM
+            setTimeout(centerFirstVisibleSlide, 50);
+
+            // Διαχείριση κλικ στα κουμπιά κατηγοριών
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (btn.classList.contains('active')) return;
+
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const selectedCategory = btn.dataset.filter;
+
+                    slides.forEach(slide => {
+                        // Καθαρισμός inline styles σε κάθε αλλαγή
+                        slide.style.opacity = '';
+                        slide.style.transform = '';
+
+                        if (slide.dataset.category === selectedCategory) {
+                            slide.classList.remove('hidden');
+                        } else {
+                            slide.classList.add('hidden');
+                            slide.classList.remove('active');
+                        }
+                    });
+
+                    centerFirstVisibleSlide();
+                });
+            });
+        }
     }
 });

@@ -89,6 +89,12 @@
             <div class="container section-header reveal">
                 <h2 class="section-title">Τα Προϊόντα μας</h2>
                 <p>Ανακαλύψτε τις ξεχωριστές γεύσεις που ετοιμάζουμε καθημερινά για εσάς.</p>
+
+                <div class="product-filters">
+                    <button class="filter-btn active" data-filter="bread">Αρτοσκευάσματα</button>
+                    <button class="filter-btn" data-filter="pastry">Σφολιατοειδή</button>
+                    <button class="filter-btn" data-filter="sweet">Γλυκά</button>
+                </div>
             </div>
 
             <div class="carousel-wrapper reveal delay-1">
@@ -96,7 +102,7 @@
                         class="fa-solid fa-arrow-left"></i></button>
 
                 <div class="carousel-track">
-                    <div class="carousel-slide active">
+                    <div class="carousel-slide" data-category="bread">
                         <article class="product-card">
                             <div class="card-img"
                                 style="background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800');"
@@ -108,7 +114,7 @@
                             </div>
                         </article>
                     </div>
-                    <div class="carousel-slide">
+                    <div class="carousel-slide" data-category="bread">
                         <article class="product-card">
                             <div class="card-img"
                                 style="background-image: url('https://images.unsplash.com/photo-1598373182133-52452f7691ef?w=800');"
@@ -120,7 +126,7 @@
                             </div>
                         </article>
                     </div>
-                    <div class="carousel-slide">
+                    <div class="carousel-slide" data-category="bread">
                         <article class="product-card">
                             <div class="card-img"
                                 style="background-image: url('https://images.unsplash.com/photo-1549611391-76495acb6290?w=800');"
@@ -132,7 +138,8 @@
                             </div>
                         </article>
                     </div>
-                    <div class="carousel-slide">
+
+                    <div class="carousel-slide" data-category="pastry">
                         <article class="product-card">
                             <div class="card-img"
                                 style="background-image: url('https://images.unsplash.com/photo-1581008899341-26f54c9c10f8?w=800');"
@@ -144,7 +151,19 @@
                             </div>
                         </article>
                     </div>
-                    <div class="carousel-slide">
+                    <div class="carousel-slide" data-category="pastry">
+                        <article class="product-card">
+                            <div class="card-img"
+                                style="background-image: url('https://images.unsplash.com/photo-1581008899341-26f54c9c10f8?w=800');"
+                                role="img" aria-label="Κρουασαν Σοκολάτας"></div>
+                            <div class="card-info">
+                                <h3>Κρουασάν Σοκολάτας</h3>
+                                <p>Αφράτο, γαλλικής συνταγής.</p>
+                                <span class="price">2.40€</span>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="carousel-slide" data-category="pastry">
                         <article class="product-card">
                             <div class="card-img"
                                 style="background-image: url('https://images.unsplash.com/photo-1620921575123-1d8f8a2bc445?w=800');"
@@ -156,7 +175,8 @@
                             </div>
                         </article>
                     </div>
-                    <div class="carousel-slide">
+
+                    <div class="carousel-slide" data-category="sweet">
                         <article class="product-card">
                             <div class="card-img"
                                 style="background-image: url('https://images.unsplash.com/photo-1584269654153-61b6cb4ec6e1?w=800');"
