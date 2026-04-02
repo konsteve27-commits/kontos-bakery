@@ -241,3 +241,23 @@ window.addEventListener('scroll', () => {
         heroContent.style.opacity = 1 - (scrollTop / window.innerHeight) * 1.5;
     }
 }, { passive: true });
+// Animation για τον τίτλο "ΚΟΝΤΟΣ" να εμφανίζεται με γράμματα που "ανοίγουν"
+const title = document.querySelector('.highlight');
+if (title) {
+    const text = title.textContent;
+    title.innerHTML = '';
+    [...text].forEach((char, i) => {
+        const span = document.createElement('span');
+        span.textContent = char;
+        span.style.opacity = '0';
+        span.style.display = 'inline-block';
+        span.style.transform = 'translateY(20px) rotateX(90deg)';
+        span.style.transition = `all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) ${i * 0.1}s`;
+        title.appendChild(span);
+        
+        setTimeout(() => {
+            span.style.opacity = '1';
+            span.style.transform = 'translateY(0) rotateX(0)';
+        }, 100);
+    });
+}

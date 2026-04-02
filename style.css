@@ -214,7 +214,7 @@ a {
 .hero-bg {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    background: url('photos/1.webp') center/cover no-repeat;
     z-index: -2;
     /* Αφαίρεση του στατικού transform και προσθήκη animation */
     animation: kenBurns 25s infinite alternate linear;
@@ -867,5 +867,128 @@ a {
         top: 0; right: 0;
         display: inline-block;
         margin-bottom: 1.5rem;
+    }
+}
+/* style.css */
+
+:root {
+    /* Χρώματα αντλημένα από το logo */
+    --logo-gold: #D4AF37; /* Το χρώμα του σιταριού */
+    --logo-brown: #3D291F; /* Το σκούρο καφέ του ξύλου */
+    --logo-cream: #F5E6BE; /* Το χρώμα του φόντου στο οβάλ */
+}
+
+.logo-inspired-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    text-transform: uppercase;
+    line-height: 1.1;
+    color: var(--bg-white);
+    text-shadow: 3px 3px 10px rgba(0,0,0,0.5); /* Δίνει βάθος όπως στο logo */
+}
+
+.logo-inspired-title .highlight {
+    display: block;
+    color: var(--logo-gold);
+    font-weight: 900;
+    letter-spacing: 5px;
+}
+
+.hero-tagline {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: var(--logo-cream);
+    margin-top: 1rem;
+    text-transform: uppercase;
+}
+
+
+/* Ειδική ρύθμιση για πολύ μικρές οθόνες (iPhone SE κλπ) */
+@media (max-width: 400px) {
+    .brand-arc {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+    }
+}
+/* style.css */
+
+/* Στόχευση μόνο της λέξης Αρτοζαχαροπλαστική */
+.brand-small {
+    display: block; /* Βάζει τη λέξη σε δική της γραμμή πάνω από το ΚΟΝΤΟΣ */
+    font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
+    
+    /* ΑΛΛΑΓΗ ΧΡΩΜΑΤΟΣ ΣΕ ΑΣΠΡΟ */
+    color: #FFFFFF; 
+    
+    font-weight: 600;
+    
+    /* ΑΥΞΗΣΗ ΜΕΓΕΘΟΥΣ (Fluid Typography)
+       Από 18px (1.125rem) στα κινητά έως 34px (2.1rem) στα desktop */
+    font-size: clamp(1.125rem, 5vw, 2.1rem);
+    
+    /* Προσαρμογή απόστασης γραμμάτων */
+    letter-spacing: clamp(2px, 1.5vw, 12px);
+    
+    margin-bottom: 0.8rem; /* Λίγο περισσότερος χώρος από το ΚΟΝΤΟΣ */
+    line-height: 1;
+    white-space: nowrap; /* Αποτρέπει το σπάσιμο της λέξης */
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5); /* Προσθήκη σκιάς για αναγνωσιμότητα */
+}
+
+/* Διασφάλιση ότι το h1 δεν περιορίζει το span */
+.logo-inspired-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: inherit; /* Ακυρώνουμε το μέγεθος του h1 για να ορίζεται από τα spans */
+    margin-bottom: 1.5rem;
+}
+
+/* Ειδική ρύθμιση για πολύ μικρά κινητά (κάτω από 360px) */
+@media (max-width: 360px) {
+    .brand-small {
+        /* Μικραίνουμε ελαφρώς για να χωράει στα πολύ μικρά */
+        font-size: 1rem; 
+        letter-spacing: 1.5px;
+    }
+}
+/* style.css */
+
+.hero-actions {
+    display: flex;
+    flex-direction: row; /* Διασφαλίζει ότι είναι δίπλα-δίπλα */
+    justify-content: center;
+    gap: 10px; /* Μικρή απόσταση μεταξύ τους */
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.hero-actions .btn {
+    /* Δυναμικό μέγεθος γραμματοσειράς: min 13px, max 18px */
+    font-size: clamp(0.8rem, 3vw, 1.1rem);
+    
+    /* Δυναμικό padding για να μικραίνουν τα κουμπιά */
+    padding: clamp(0.6rem, 2vw, 1rem) clamp(0.8rem, 3vw, 2rem);
+    
+    flex: 1; /* Επιτρέπει στα κουμπιά να μοιράζονται τον χώρο */
+    max-width: 200px; /* Δεν αφήνει τα κουμπιά να γίνουν υπερβολικά μεγάλα στο desktop */
+    white-space: nowrap; /* Αποτρέπει το σπάσιμο του κειμένου σε 2 γραμμές */
+    text-align: center;
+    border-radius: 50px; /* Στρογγυλεμένες άκρες όπως στο σύγχρονο design */
+    transition: var(--transition-fast);
+}
+
+/* Ειδική ρύθμιση για πολύ μικρά κινητά */
+@media (max-width: 480px) {
+    .hero-actions {
+        gap: 8px;
+        padding: 0 10px; /* Προσθέτει λίγο περιθώριο δεξιά-αριστερά */
+    }
+    
+    .hero-actions .btn {
+        letter-spacing: 0; /* Μειώνει το διάκενο για να χωρέσει το κείμενο */
+        font-weight: 600;
     }
 }
